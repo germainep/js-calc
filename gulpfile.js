@@ -6,15 +6,15 @@ var autoprefix = require('gulp-autoprefixer');
 var gutil = require('gulp-util');
 
 var paths = {
-  js: './src/js/*.js',
-  css: './src/sass/*.sass',
+  js: ['./src/js/calc.js', './src/js/calc-controllers.js', './src/js/calc-services.js'],
+  css: './src/sass/main.sass',
   pug: './src/*.pug'
 };
 gulp.task('sass', function() {
   gulp.src(paths.css)
   .pipe(sass().on('error', sass.logError))
   .pipe(autoprefix({
-    browsers: ['last 3 versions'],
+    browsers: ['last 5 versions'],
     cascade: false
   }))
   .pipe(gulp.dest('./dist/css'))
@@ -35,7 +35,7 @@ gulp.task('js', function() {
 gulp.task('watcher', function() {
   gulp.watch(paths.js, ['js']);
   gulp.watch(paths.pug, ['html']);
-  gulp.watch(paths.css, ['sass']);
+  gulp.watch('./src/sass/*.sass', ['sass']);
 });
 
 gulp.task('default', ['sass', 'html', 'js']);
