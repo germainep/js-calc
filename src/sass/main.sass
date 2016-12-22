@@ -1,6 +1,54 @@
+*
+  box-sizing: border-box
+
 @import "fonts"
 
 $primary-color: #4990E2
 $screen-color: #419C24
 $screen-numbers: darken($screen-color, 20)
-$button-shadow: box-shadow inset -6px -6px 5px 0
+$button-shadow: inset -6px -6px 5px 0 rgba(0,0,0,0.4), inset 5px -3px 3px 0 rgba(0,0,0,0.3)
+
+.container
+  display: flex
+  flex-direction: column
+  align-items: center
+  width: 100%
+  background-image: radial-gradient(50% 49%, #80C3EC 2%, #80C3EF 17%, #4990E2 49%);
+  border: 1px solid #979797;
+  box-shadow: 3px 17px 21px 3px rgba(0,0,0,0.50), inset 15px 0 13px 5px rgba(0,0,0,0.50), inset -15px -15px 10px 5px rgba(0,0,0,0.50);
+  border-radius: 25px;
+  margin: 50px auto
+
+  @media screen and (min-width: 450px)
+      width: 422px
+
+.screen
+  background: $screen-color
+  border-radius: 8px
+  box-shadow: inset 5px 1px 3px 0 rgba(0,0,0,0.5), inset -5px 6px 3px 0 rgba(0,0,0,0.5)
+  width: 310px
+  height: 90px
+  margin: 75px 50px 32px 50px
+
+.keypad
+  width: 310px
+  margin-bottom: 96px
+
+.keypad-row
+  display: flex
+  justify-content: space-around
+  margin: 6px 0
+
+.buttons
+  background: #4A4A4A
+  font-family: "Arvo"
+  color: saturate($primary-color, 50)
+  font-size: 45px
+  border: none
+  height: 65px
+  width: 65px
+  border-radius: 8px
+  box-shadow: $button-shadow
+
+.largebuttons
+  width: 145px
