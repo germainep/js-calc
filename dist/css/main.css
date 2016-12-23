@@ -30,8 +30,13 @@
       width: 422px; } }
 
 .screen {
+  font-size: 65px;
+  font-family: 'Calculator';
+  text-align: right;
   background: #419C24;
   border-radius: 8px;
+  color: #1e4911;
+  padding: 10px;
   box-shadow: inset 5px 1px 3px 0 rgba(0, 0, 0, 0.5), inset -5px 6px 3px 0 rgba(0, 0, 0, 0.5);
   width: 310px;
   height: 90px;
@@ -60,6 +65,9 @@
   width: 65px;
   border-radius: 8px;
   box-shadow: inset -6px -6px 5px 0 rgba(0, 0, 0, 0.4), inset 5px -3px 3px 0 rgba(0, 0, 0, 0.3); }
+  .buttons:hover {
+    transition: all 0.15s ease;
+    box-shadow: inset 1px 2px 5px 0 rgba(0, 0, 0, 0.5), inset -1px 1px 3px 0 rgba(0, 0, 0, 0.5); }
 
 .largebuttons {
   width: 145px; }

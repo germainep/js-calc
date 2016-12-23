@@ -6,7 +6,7 @@ var autoprefix = require('gulp-autoprefixer');
 var gutil = require('gulp-util');
 
 var paths = {
-  js: ['./src/js/calc.js', './src/js/calc-controllers.js', './src/js/calc-services.js'],
+  js: ['./src/js/calc.js', './src/js/calc-services.js', './src/js/calc-controllers.js'],
   css: './src/sass/main.sass',
   pug: './src/*.pug'
 };

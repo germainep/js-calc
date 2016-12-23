@@ -1,33 +1,36 @@
 doctype html
-head
-  script(src='../bower_components/angular/angular.min.js')
-  script(src='./js/main.js')
-  link(href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css', rel='stylesheet')
-  link(href='./css/main.css', rel='stylesheet')
-  meta(name='viewport' content='width=device-width, initial-scale=1')
-body
-  .container
-    header
-    .screen
-    .keypad
-      .keypad-row
-        button#key-clear.buttons.largebuttons AC
-      .keypad-row
-        button#key-7.buttons 7
-        button#key-8.buttons 8
-        button#key-9.buttons 9
-        button#key-divide.buttons /
-      .keypad-row
-        button#key-6.buttons 6
-        button#key-5.buttons 5
-        button#key-4.buttons 4
-        button#key-minus.buttons -
-      .keypad-row
-        button#key-3.buttons 3
-        button#key-2.buttons 2
-        button#key-1.buttons 1
-        button#key-plus.buttons +
-      .keypad-row
-        button#key-0.buttons.largebuttons 0
-        button#key-decimal.buttons .
-        button#key-equal.buttons =
+html
+  head
+    script(src='../bower_components/angular/angular.min.js')
+    script(src='./js/main.js')
+    link(href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css', rel='stylesheet')
+    link(href='./css/main.css', rel='stylesheet')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+  body(ng-app='Calc')
+    .container(ng-controller='ScreenController')
+      header
+      input.screen(type='text' ng-model='screen')
+      .keypad
+        .keypad-row
+          button#keyClear.buttons.largebuttons AC
+          button#placehold.buttons
+          button#keyMulti.buttons x
+        .keypad-row
+          button#key7.buttons 7
+          button#key8.buttons 8
+          button#key9.buttons 9
+          button#keyDivide.buttons /
+        .keypad-row
+          button#key6.buttons 6
+          button#key5.buttons 5
+          button#key4.buttons 4
+          button#keyMinus.buttons -
+        .keypad-row
+          button#key3.buttons 3
+          button#key2.buttons 2
+          button#key1.buttons 1
+          button#keyPlus.buttons +
+        .keypad-row
+          button#key0.buttons.largebuttons 0
+          button#keyDecimal.buttons .
+          button#keyEqual.buttons =
