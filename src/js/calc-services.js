@@ -1,10 +1,25 @@
-Calc.factory('ScreenService',[function(){
-  return {
-    total: 0,
-    add: function(){
+Calc.service('ScreenService',['$rootScope', 'KeymapService', function($rootScope, KeymapService){
+  this.calMem = [];
+  this.toScreen = 0;
+  this.result = 0;
+  this.temp = [];
+  this.operation = function(event){
+    if(this.calMem.length === 2){
 
-    }
-  }
+      this.result = eval('' + this.calMem[0] + this.calMem[1] + this.toScreen + '');
+      this.calMem[0] = this.result;
+      this.calMem[1] = KeymapService[event.target.id];
+      this.temp= [];
+      this.toScreen = this.result;
+
+      $rootScope.$digest();
+      }else {
+        this.temp = [];
+        this.calMem[0] = this.toScreen;
+        this.calMem[1] = KeymapService[event.target.id];
+        console.log(this.calMem);
+      }
+  };
 }]);
 
 Calc.factory('KeymapService', [function() {
@@ -13,7 +28,7 @@ Calc.factory('KeymapService', [function() {
       keyMinus: '-',
       keyPlus: '+',
       keyDivide: '/',
-      keyMulti: '*',
+      keyMultiply: '*',
       keyDecimal: '.',
       key1: 1,
       key2: 2,
