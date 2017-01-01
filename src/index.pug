@@ -9,7 +9,7 @@ html
   body(ng-app='Calc')
     .container(ng-controller='ScreenController')
       header
-      .screen {{screen}}
+      .screen {{screen | limitTo: 11}}
       .keypad
         .keypad-row
           button#keyClear.buttons.largebuttons AC

@@ -4,7 +4,7 @@ Calc.service('ScreenService',['$rootScope', 'KeymapService', function($rootScope
   this.decimal = false;
   this.result = 0;
   this.parser = function(temp) {
-    return parseFloat(temp.join(''));
+    return parseFloat(temp.join(''), 10);
   }
   this.temp = [];
   this.operation = function(event){
