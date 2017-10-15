@@ -1,1 +1,3 @@
-var Calc = angular.module('Calc', []);
+const display = document.querySelector('.display');
+
+display.innerHTML = 0;
