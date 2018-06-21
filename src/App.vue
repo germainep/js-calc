@@ -1,17 +1,30 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <h1>Javascript Calculator</h1>
+    <Display/>
+    <Keypad/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Display from "./components/Display"
+import Keypad from './components/Keypad'
 
 export default {
   name: 'App',
+
+  data () {
+    return {
+      count: [],
+    }
+  },
+
+  computed: {
+  },
+
   components: {
-    HelloWorld
+    Display,
+    Keypad
   }
 }
 </script>
