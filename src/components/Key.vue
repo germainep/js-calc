@@ -15,15 +15,11 @@ export default {
             if(this.name === 'C'){
                 Event.$emit('clear')
             }
-            else if(this.name === '+') {
-                Event.$emit('operator', this.name)
 
-            }
             else if(this.name === 'AC') {
                 Event.$emit('allClear')
             }
             else {
-                console.log(this.name)
                 Event.$emit('pressed', this.name)
             }
         }

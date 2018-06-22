@@ -53,44 +53,49 @@ export default {
             this.clear()
             this.memory = []
         },
-        plus () {
-            if(this.memory.length < 1){
+        doMath (key) {
+            if(this.memory.length < 2){
                 this.memory.push(this.toScreen)
+                this.memory.push(key)
                 this.currentDisplay = []
             } else {
                 this.memory.push(this.toScreen)
-                this.toScreen = this.memory.reduce(function(total, num){
-                    return total + num
-                })
+                this.toScreen = eval(this.memory[0] + this.memory[1] + this.memory[2])
                 this.currentDisplay = []
                 this.memory = []
                 this.memory.push(this.toScreen)
+                this.memory.push(key)
+                Event.$emit('toDisplay', this.toScreen)
             }
         },
-        minus (){},
-        divide () {},
-        multiply () {},
-        decimal () {},
-        equal () {},
+        equal () {
+            this.memory.push(this.toScreen)
+            this.toScreen = eval(this.memory[0] + this.memory[1] + this.memory[2])
+            this.currentDisplay = []
+            this.memory = []
+            Event.$emit('toDisplay', this.toScreen)
+        },
     },
 
     created() {
         Event.$on('pressed', (keyPressed)=> {
+            var operators = ['+',  '-',  '/', '*']
+            
+            if(operators.includes(keyPressed)) {
+                this.doMath(keyPressed)
+            }
+            else if(keyPressed === '=') {
+                this.equal() 
+            }
+            else
+            {
             this.currentDisplay.push(keyPressed)
-            this.toScreen = parseInt(this.currentDisplay.join(''))
+            this.toScreen = parseFloat(this.currentDisplay.join(''), 10)
             Event.$emit('toDisplay', this.toScreen)
-        }),
-
-        Event.$on('operator', (keyPressed)=> {
-            this.operator = keyPressed;
-            if(this.operator === '+') {
-                this.plus()
-                console.log(this.memory, this.toScreen)
-                Event.$emit('toDisplay', this.toScreen)
             }
         }),
+
          Event.$on('clear', ()=> {
-            console.log(this.toScreen)
             this.clear()
             Event.$emit('toDisplay', 0)
         }),
